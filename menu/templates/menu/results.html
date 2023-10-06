@@ -1,5 +1,5 @@
 <ul>
-    {% for item in submenus %}
-    <li>{{ item.name }}</li>
+    {% for item in items %}
+    <li><a href="/?{{name}}={{item.name}}">{{ item.name }}</a></li>
     {% endfor %}
 </ul>
