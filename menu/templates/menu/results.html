@@ -1,5 +1,10 @@
-<ul>
-    {% for item in items %}
-    <li><a href="/?{{name}}={{item.name}}">{{ item.name }}</a></li>
-    {% endfor %}
-</ul>
+{% for item in items %}
+    <li>
+        <a href="/?{{ menu_name }}={{ item.name }}"> {{ item.name }} </a>
+        {% if item.submenus|length %}
+            <ul>
+                {% include "menu/results.html" with items=item.submenus menu_name=menu_name %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}
